@@ -1,98 +1,67 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Text } from '@/components/ui/text';
+import { View } from '@/components/ui/view';
+import { useColor } from '@/hooks/useColor';
+import { useRouter } from 'expo-router';
+import { Eye, EyeOff, Lock, LogIn, Mail } from 'lucide-react-native';
+import { useState } from 'react';
+import { Pressable } from 'react-native';
 
 export default function HomeScreen() {
+
+  const router = useRouter();
+  const muted = useColor('muted');
+
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+    <View>
+      <View style={{
+        height: 400,
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <Text style={{
+          fontSize: 50,
+          textAlign: 'center'
+        }}>{"Welcome To\n"}
+          <Text style={{
+            fontSize: 50,
+            color: 'orange',
+            fontWeight: '700'
+          }}>
+            StockFlow
+          </Text>
+        </Text>
+      </View>
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
-
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
+      <View style={{
+        gap: 20,
+        paddingHorizontal: 20
+      }}>
+        <View style={{ gap: 10 }}>
+          <Input label='Email' placeholder='Enter your email' icon={Mail} />
+          <Input
+            label='Password'
+            placeholder='Enter the password'
+            secureTextEntry={!showPassword}
+            icon={Lock}
+            rightComponent={
+              <Pressable onPress={() => setShowPassword(!showPassword)}>
+                {showPassword ? (
+                  <EyeOff size={22} color={muted} />
+                ) : (
+                  <Eye size={22} color={muted} />
+                )}
+              </Pressable>
+            }
           />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
+        </View>
+        <Button onPress={() => console.log('Button pressed!')} icon={LogIn}>Sign In</Button>
+      </View>
 
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
-  },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
-  },
-  title: {
-    textAlign: 'center',
-  },
-  code: {
-    textTransform: 'uppercase',
-  },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
-  },
-});
