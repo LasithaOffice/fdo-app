@@ -78,6 +78,15 @@ export default function TabLayout() {
             }
           }
         } />
+        <Stack.Screen name='PastRequests' options={
+          {
+            headerTitle: "Past Request",
+            headerBackButtonDisplayMode: 'minimal',
+            headerStyle: {
+              backgroundColor: '#1c1c1e'
+            }
+          }
+        } />
       </Stack>
     </ThemeProvider>
   );

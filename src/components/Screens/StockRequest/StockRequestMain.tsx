@@ -38,6 +38,10 @@ const StockRequestMain = () => {
     router.push('/NewRequest');
   }, [])
 
+  const gotoPastRequest = useCallback(() => {
+    router.push('/PastRequests');
+  }, [])
+
   return (
     <View style={styles.container}>
       {/* Card */}
@@ -57,7 +61,7 @@ const StockRequestMain = () => {
         <Text variant="title">Stock Requests</Text>
         <Text variant="caption" style={{ fontSize: 12 }}>Request stock from a warehouse and track approval status</Text>
         <Button icon={Plus} variant="success" onPress={gotoNewRequest}>New Request</Button>
-        <Button icon={History} variant="outline">Past Requests</Button>
+        <Button icon={History} variant="outline" onPress={gotoPastRequest}>Past Requests</Button>
       </View>
 
     </View>
