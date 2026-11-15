@@ -32,6 +32,15 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Tiny5Duo-Bold.ttf",
+            "./assets/fonts/Tiny5Duo-Regular.ttf"
+          ]
+        }
       ]
     ],
     "experiments": {

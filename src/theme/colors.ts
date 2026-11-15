@@ -160,7 +160,7 @@ const darkColors = {
   indigo: '#5E5CE6',
 
   // Semantic states
-  success: '#16a34a',
+  success: '#d6720f',
   successForeground: '#ffffff',
   warning: '#d97706',
   warningForeground: '#ffffff',

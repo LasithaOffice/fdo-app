@@ -59,7 +59,9 @@ export default function HomeScreen() {
             }
           />
         </View>
-        <Button onPress={() => console.log('Button pressed!')} icon={LogIn}>Sign In</Button>
+        <Button onPress={() => {
+          router.replace('/(tab)/StockRequest')
+        }} icon={LogIn}>Sign In</Button>
       </View>
 
     </View>

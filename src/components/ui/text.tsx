@@ -37,6 +37,7 @@ export const Text = React.memo(
       const getTextStyle = (): TextStyle => {
         const baseStyle: TextStyle = {
           color: textColor,
+          fontFamily: "Tiny5Duo-Regular"
         };
 
         switch (variant) {
