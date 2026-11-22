@@ -90,6 +90,15 @@ export default function TabLayout() {
             }
           }
         } />
+        <Stack.Screen name='RequestDetails' options={
+          {
+            headerTitle: "Request Details",
+            headerBackButtonDisplayMode: 'minimal',
+            headerStyle: {
+              backgroundColor: '#1c1c1e'
+            }
+          }
+        } />
       </Stack>
     </ThemeProvider>
   );

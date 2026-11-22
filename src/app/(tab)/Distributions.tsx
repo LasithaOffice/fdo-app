@@ -1,10 +1,8 @@
-import { Text, View } from 'react-native'
+import DistributionsMain from '@/components/Screens/Distributions/DistributionsMain'
 
 const Distributions = () => {
   return (
-    <View>
-      <Text>Distributions</Text>
-    </View>
+    <DistributionsMain />
   )
 }
 
