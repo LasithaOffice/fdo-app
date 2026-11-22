@@ -50,7 +50,7 @@ const NewRequestMain = () => {
         options={options}
         value={value}
         onValueChange={setValue}
-        placeholder='Select a fruit...'
+        placeholder='Select a warehouse...'
       />
       <Text>Request Date</Text>
       <DatePicker

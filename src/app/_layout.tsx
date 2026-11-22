@@ -3,7 +3,7 @@ import { useFonts } from 'expo-font';
 import { Stack, usePathname } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useMemo } from 'react';
-import { useColorScheme } from 'react-native';
+import { Platform, useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -25,6 +25,7 @@ export default function TabLayout() {
   const [loaded, error] = useFonts({
     'Tiny5Duo-Bold': require('@/assets/fonts/Tiny5Duo-Bold.ttf'),
     'Tiny5Duo-Regular': require('@/assets/fonts/Tiny5Duo-Regular.ttf'),
+    'GoogleSans-Regular': require('@/assets/fonts/GoogleSans-Regular.ttf'),
   });
 
   useEffect(() => {
@@ -36,6 +37,8 @@ export default function TabLayout() {
   if (!loaded && !error) {
     return null;
   }
+
+  const isIOS = Platform.OS == 'ios';
 
   return (
     <ThemeProvider>
@@ -49,7 +52,7 @@ export default function TabLayout() {
           {
             headerTitle: Title,
             headerTitleStyle: {
-              fontFamily: 'Tiny5Duo-Regular'
+              fontFamily: 'GoogleSans-Regular'
             },
             headerStyle: {
               backgroundColor: '#1c1c1e'
@@ -58,7 +61,7 @@ export default function TabLayout() {
         }
         >
           <Stack.Toolbar placement='right'>
-            <Stack.Toolbar.Menu icon={'ellipsis'}>
+            <Stack.Toolbar.Menu icon={isIOS ? 'ellipsis' : require('@/assets/images/more.png')}>
               <Stack.Toolbar.MenuAction
                 icon={'sun.min'}
                 onPress={() => {

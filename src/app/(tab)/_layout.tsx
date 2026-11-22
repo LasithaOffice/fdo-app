@@ -4,7 +4,7 @@ const _layout = () => {
   return (
     <NativeTabs labelStyle={
       {
-        fontFamily: 'Tiny5Duo-Regular'
+        fontFamily: 'GoogleSans-Regular'
       }
     }>
       <NativeTabs.Trigger name='StockRequest'>

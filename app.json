@@ -38,7 +38,8 @@
         {
           "fonts": [
             "./assets/fonts/Tiny5Duo-Bold.ttf",
-            "./assets/fonts/Tiny5Duo-Regular.ttf"
+            "./assets/fonts/Tiny5Duo-Regular.ttf",
+            "./assets/fonts/GoogleSans-Regular.ttf"
           ]
         }
       ]
