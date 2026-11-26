@@ -37,7 +37,7 @@ export const Text = React.memo(
       const getTextStyle = (): TextStyle => {
         const baseStyle: TextStyle = {
           color: textColor,
-          fontFamily: "GoogleSans-Regular"
+          fontFamily: "GoogleSans-Regular",
         };
 
         switch (variant) {
@@ -52,12 +52,14 @@ export const Text = React.memo(
               ...baseStyle,
               fontSize: 24,
               fontWeight: '700',
+              lineHeight: 25
             };
           case 'subtitle':
             return {
               ...baseStyle,
               fontSize: 19,
               fontWeight: '600',
+              lineHeight: 25
             };
           case 'caption':
             return {
@@ -65,6 +67,7 @@ export const Text = React.memo(
               fontSize: FONT_SIZE,
               fontWeight: '400',
               color: mutedColor,
+              lineHeight: 25
             };
           case 'link':
             return {
@@ -78,6 +81,7 @@ export const Text = React.memo(
               ...baseStyle,
               fontSize: FONT_SIZE,
               fontWeight: '400',
+              lineHeight: 25
             };
         }
       };

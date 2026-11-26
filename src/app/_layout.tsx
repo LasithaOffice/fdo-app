@@ -61,7 +61,7 @@ export default function TabLayout() {
         }
         >
           <Stack.Toolbar placement='right'>
-            <Stack.Toolbar.Menu icon={isIOS ? 'ellipsis' : require('@/assets/images/more.png')}>
+            <Stack.Toolbar.Menu icon={isIOS ? 'ellipsis' : require('@/assets/images/menu_icon_tr.png')}>
               <Stack.Toolbar.MenuAction
                 icon={'sun.min'}
                 onPress={() => {

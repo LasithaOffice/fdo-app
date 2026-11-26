@@ -57,7 +57,7 @@ const StockRequestMain = () => {
       </View>
 
       {/* Bottom Part */}
-      <View style={{ gap: 10 }}>
+      <View style={{ gap: 10, marginBottom: 10 }}>
         <Text variant="title">Stock Requests</Text>
         <Text variant="caption" style={{ fontSize: 12 }}>Request stock from a warehouse and track approval status</Text>
         <Button icon={Plus} variant="success" onPress={gotoNewRequest}>New Request</Button>

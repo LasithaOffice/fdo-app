@@ -1,11 +1,13 @@
+import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
 import { View } from "@/components/ui/view";
 import { useColor } from "@/hooks/useColor";
-import { Truck } from "lucide-react-native";
+import { Plus, Truck } from "lucide-react-native";
 
 const DistributionsMain = () => {
 
   const bg = useColor('card');
+  const primary = useColor('success');
 
 
   return (
@@ -48,18 +50,17 @@ const DistributionsMain = () => {
                 borderColor: '#01c401',
                 backgroundColor: '#003100',
                 paddingHorizontal: 10,
-                height: 25,
+                height: 20,
                 borderRadius: 100,
-                width: 100,
                 justifyContent: 'center',
                 alignItems: 'center'
               }}>
-                <Text style={{ fontSize: 14, color: "#01c401" }}>Complete</Text>
+                <Text style={{ fontSize: 14, color: "#01c401", lineHeight: 14 }}>Complete</Text>
               </View>
             </View>
 
-            <View style={{ marginTop: 4, width: 200 }}>
-              <Text style={{ fontSize: 14, color: '#888' }} >
+            <View style={{ marginTop: 4, }}>
+              <Text style={{ fontSize: 14, color: '#888', lineHeight: 14 }} >
                 Request: REQ-1050 - Colombo central warehouse
               </Text>
             </View>
@@ -75,7 +76,7 @@ const DistributionsMain = () => {
           <View style={{
             borderWidth: 1,
             borderColor: "#3f3f3f",
-            padding: 20,
+            padding: 15,
             flex: 1
           }}>
             <Text style={{ fontSize: 12, color: '#888' }}>Collected</Text>
@@ -84,7 +85,7 @@ const DistributionsMain = () => {
           <View style={{
             borderWidth: 1,
             borderColor: "#3f3f3f",
-            padding: 20,
+            padding: 15,
             flex: 1
           }}>
             <Text style={{ fontSize: 12, color: '#888' }}>Delivered</Text>
@@ -98,7 +99,7 @@ const DistributionsMain = () => {
           <View style={{
             borderWidth: 1,
             borderColor: "#3f3f3f",
-            padding: 20,
+            padding: 15,
             flex: 1
           }}>
             <Text style={{ fontSize: 12, color: '#888' }}>Collected</Text>
@@ -107,7 +108,7 @@ const DistributionsMain = () => {
           <View style={{
             borderWidth: 1,
             borderColor: "#3f3f3f",
-            padding: 20,
+            padding: 15,
             flex: 1
           }}>
             <Text style={{ fontSize: 12, color: '#888' }}>Delivered</Text>
@@ -116,7 +117,7 @@ const DistributionsMain = () => {
         </View>
 
         <View style={{
-          padding: 20
+          padding: 15
         }}>
           <View style={{
             flexDirection: 'row',
@@ -124,7 +125,7 @@ const DistributionsMain = () => {
             alignItems: 'center'
           }}>
             <Text style={{ fontSize: 12, color: '#888' }}>Issues</Text>
-            <Text style={{ fontSize: 14 }}>6th Aug 2026</Text>
+            <Text style={{ fontSize: 12, lineHeight: 14 }}>6th Aug 2026</Text>
           </View>
           <View style={{
             flexDirection: 'row',
@@ -132,7 +133,7 @@ const DistributionsMain = () => {
             alignItems: 'center'
           }}>
             <Text style={{ fontSize: 12, color: '#888' }}>Collected</Text>
-            <Text style={{ fontSize: 14 }}>10th Oct 2026, 14:41</Text>
+            <Text style={{ fontSize: 12, lineHeight: 14 }}>10th Oct 2026, 14:41</Text>
           </View>
           <View style={{
             flexDirection: 'row',
@@ -140,10 +141,25 @@ const DistributionsMain = () => {
             alignItems: 'center'
           }}>
             <Text style={{ fontSize: 12, color: '#888' }}>Route</Text>
-            <Text style={{ fontSize: 14 }}>Colombo North</Text>
+            <Text style={{ fontSize: 12, lineHeight: 14 }}>Colombo North</Text>
           </View>
         </View>
 
+      </View>
+
+      <View style={
+        {
+          borderRadius: 16,
+          padding: 20,
+          borderWidth: 1,
+          borderColor: primary,
+          marginTop: 20,
+          backgroundColor: bg
+        }
+      }>
+        <Text >Ready to deliver to an outlet?</Text>
+        <Text variant="caption">Record each outlet deliveries as you complete it during the distribution run</Text>
+        <Button icon={Plus} variant="success" style={{ marginTop: 10 }}>Record Outlet Delivery</Button>
       </View>
 
     </View>
