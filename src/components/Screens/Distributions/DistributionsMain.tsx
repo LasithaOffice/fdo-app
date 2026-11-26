@@ -42,7 +42,9 @@ const DistributionsMain = () => {
           </View>
 
           {/* Id and the status */}
-          <View style={{}}>
+          <View
+            style={{ flex: 1, minWidth: 0 }}
+          >
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
               <Text>RUN-1010</Text>
               <View style={{
@@ -55,12 +57,14 @@ const DistributionsMain = () => {
                 justifyContent: 'center',
                 alignItems: 'center'
               }}>
-                <Text style={{ fontSize: 14, color: "#01c401", lineHeight: 14 }}>Complete</Text>
+                <Text style={{ fontSize: 14, color: '#01c401', lineHeight: 14 }}>Complete</Text>
               </View>
             </View>
 
-            <View style={{ marginTop: 4, }}>
-              <Text style={{ fontSize: 14, color: '#888', lineHeight: 14 }} >
+            <View style={{ marginTop: 4, alignSelf: 'stretch' }}>
+              <Text
+                style={{ fontSize: 14, color: '#888', lineHeight: 18, }}
+              >
                 Request: REQ-1050 - Colombo central warehouse
               </Text>
             </View>
